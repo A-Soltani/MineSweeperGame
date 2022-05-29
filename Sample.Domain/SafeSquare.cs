@@ -11,7 +11,7 @@ namespace Sample.Domain
         }
 
         public static SafeSquare Add(int row, int column) => new SafeSquare(row, column);
-        public void AddAdjacentMineSquare() => ++_adjacentMineSquares;
+        public void InCreaseAdjacentMineSquares() => ++_adjacentMineSquares;
         public int GetAdjacentMineSquares() => _adjacentMineSquares;
     }
 }

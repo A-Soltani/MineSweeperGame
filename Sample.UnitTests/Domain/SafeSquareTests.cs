@@ -32,7 +32,7 @@ namespace Sample.UnitTests
             SafeSquare safeSquare = SafeSquare.Add(row, column);
 
             // Act
-            safeSquare.AddAdjacentMineSquare();
+            safeSquare.InCreaseAdjacentMineSquares();
 
             // Assert
             Assert.AreEqual(safeSquare.GetAdjacentMineSquares(), expectedSafeSquareCount);
