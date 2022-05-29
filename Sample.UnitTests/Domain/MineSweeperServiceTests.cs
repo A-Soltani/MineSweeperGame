@@ -77,6 +77,8 @@ namespace Sample.UnitTests
             // Assert
             Assert.IsInstanceOf<MineSquare>(adjacentMineSquares[0, 0]);
             Assert.IsInstanceOf<SafeSquare>(adjacentMineSquares[0, 1]);
+            Assert.IsInstanceOf<MineSquare>(adjacentMineSquares[1, 2]);
+            Assert.IsInstanceOf<SafeSquare>(adjacentMineSquares[2, 3]);
         }
 
     }

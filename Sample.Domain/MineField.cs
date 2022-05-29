@@ -56,6 +56,8 @@ namespace Sample.Domain
 
             for (int col = safeSquare.Column - 1; col <= safeSquare.Column + 1; col++)
             {
+                if (col == -1 || col == Columns)
+                    break;
                 if (_sqaures[row, col] is MineSquare)
                     safeSquare.InCreaseAdjacentMineSquares();
             }
