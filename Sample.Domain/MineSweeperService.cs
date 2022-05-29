@@ -5,17 +5,17 @@ namespace Sample.Domain
 {
     public class MineSweeperService
     {
-        public static List<Square> GetAdjacentMineSquares(MineField mineField)
+        public static Square[,] GetAdjacentMineSquares(MineField mineField)
         {
-            List<Square> adjacentMineSquares = null;
+            Square[,] adjacentMineSquares = null;
             var squares = mineField.GetSquares();
             if (mineField.Rows > 0 && mineField.Columns > 0)
             {
-                adjacentMineSquares = new List<Square>();
+                adjacentMineSquares = new Square[mineField.Rows, mineField.Columns];
                 if (mineField.Rows == 1 && mineField.Columns == 1)
                 {
                     if (squares[0, 0] is MineSquare)
-                        adjacentMineSquares.Add(new MineSquare(0, 0));
+                        adjacentMineSquares[0, 0] = new MineSquare(0, 0);
                 }
             }
             return adjacentMineSquares;

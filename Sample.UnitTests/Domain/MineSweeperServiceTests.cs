@@ -15,7 +15,7 @@ namespace Sample.UnitTests
             MineField mineField = new MineField(0, 0);
 
             // Act
-            List<Square> adjacentMineSquares = MineSweeperService.GetAdjacentMineSquares(mineField);
+            Square[,] adjacentMineSquares = MineSweeperService.GetAdjacentMineSquares(mineField);
 
             // Assert
             Assert.IsNull(adjacentMineSquares);
@@ -30,17 +30,13 @@ namespace Sample.UnitTests
             var squareColumn = 0;
             var sqaureHasMine = true;
             mineField.AddSquare(sqaureRow, squareColumn, sqaureHasMine);
-            var expectedSquareCount = 1;
 
             // Act
-            List<Square> adjacentMineSquares = MineSweeperService.GetAdjacentMineSquares(mineField);
-
+            var adjacentMineSquares = MineSweeperService.GetAdjacentMineSquares(mineField);
 
             // Assert
             Assert.NotNull(adjacentMineSquares);
-            Assert.That(adjacentMineSquares, Has.Count.EqualTo(expectedSquareCount));
-            Assert.IsInstanceOf<MineSquare>(adjacentMineSquares.First());
-
+            Assert.IsInstanceOf<MineSquare>(adjacentMineSquares[0, 0]);
         }
     }
 }
