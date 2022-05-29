@@ -9,9 +9,9 @@ namespace Sample.Domain
         {
             Rows = rows;
             Columns = columns;
-            _sqaures = new List<Square>();
+            _sqaures = new Square[Rows, Columns];
         }
-        private List<Square> _sqaures;
+        private Square[,] _sqaures;
         public int Rows { get; set; }
         public int Columns { get; set; }
 
@@ -23,9 +23,11 @@ namespace Sample.Domain
         public void AddSquare(int squareRow, int sqaureColumn, bool sqaureHasMine)
         {
             if (sqaureHasMine)
-                _sqaures.Add(MineSquare.Add(squareRow, sqaureColumn));
+                _sqaures[squareRow, sqaureColumn] = MineSquare.Add(squareRow, sqaureColumn);
+            else
+                _sqaures[squareRow, sqaureColumn] = SafeSquare.Add(squareRow, sqaureColumn);
         }
 
-        public List<Square> GetSquares() => _sqaures;
+        public Square[,] GetSquares() => _sqaures;
     }
 }

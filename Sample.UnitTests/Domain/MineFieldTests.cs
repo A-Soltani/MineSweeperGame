@@ -26,12 +26,12 @@ namespace Sample.UnitTests
         {
             // Arrange
             // Arrange
-            int rows = 2;
-            int columns = 3;
+            int rows = 1;
+            int columns = 1;
             MineField mineField = MineField.Add(rows, columns);
 
             // Act
-            List<Square> squares = mineField.GetSquares();
+            var squares = mineField.GetSquares();
 
             // Assert
             Assert.NotNull(squares);
@@ -41,22 +41,20 @@ namespace Sample.UnitTests
         public void AddSquare_FirstSquareIsAddedToEmptyMineField_MineFieldHavingOneSquareShouldBeReturned()
         {
             // Arrange
-            int mineFiledRows = 2;
-            int mineFiledRColumns = 3;
+            int mineFiledRows = 1;
+            int mineFiledRColumns = 1;
             var mineField = MineField.Add(mineFiledRows, mineFiledRColumns);
 
             int squareRow = 0;
-            int sqaureColumn = 1;
+            int sqaureColumn = 0;
             bool sqaureHasMine = true;
-            var expectedSquareCount = 1;
 
             // Act
             mineField.AddSquare(squareRow, sqaureColumn, sqaureHasMine);
             var squares = mineField.GetSquares();
 
             // Assert
-            Assert.That(squares, Has.Count.EqualTo(expectedSquareCount));
-
+            Assert.NotNull(squares[0, 0]);
         }
     }
 }

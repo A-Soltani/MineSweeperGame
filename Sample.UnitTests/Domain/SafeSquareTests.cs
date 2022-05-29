@@ -22,6 +22,22 @@ namespace Sample.UnitTests
             Assert.AreEqual(safeSquare.Column, column);
         }
 
+        [Test]
+        public void AddAdjacentMineSquare_AdjacentMineSquareIsZiro_AdjacentMineSquareShouldBeIncreased()
+        {
+            // Arrange
+            int row = 1;
+            int column = 2;
+            var expectedSafeSquareCount = 1;
+            SafeSquare safeSquare = SafeSquare.Add(row, column);
+
+            // Act
+            safeSquare.AddAdjacentMineSquare();
+
+            // Assert
+            Assert.AreEqual(safeSquare.GetAdjacentMineSquares(), expectedSafeSquareCount);
+        }
+
     }
 
 }
