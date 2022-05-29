@@ -22,7 +22,8 @@ namespace Sample.Domain
 
         public void AddSquare(int squareRow, int sqaureColumn, bool sqaureHasMine)
         {
-            _sqaures.Add(Square.Add(squareRow, sqaureColumn, sqaureHasMine));
+            if (sqaureHasMine)
+                _sqaures.Add(MineSquare.Add(squareRow, sqaureColumn));
         }
 
         public List<Square> GetSquares() => _sqaures;

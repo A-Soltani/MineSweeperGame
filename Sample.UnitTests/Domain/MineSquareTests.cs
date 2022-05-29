@@ -14,12 +14,12 @@ namespace Sample.UnitTests
             int column = 2;
 
             // Act
-            SafeSquare safeSquare = SafeSquare.Add(row, column);
+            MineSquare mineSquare = MineSquare.Add(row, column);
 
             // Assert
-            Assert.NotNull(safeSquare);
-            Assert.AreEqual(safeSquare.Row, row);
-            Assert.AreEqual(safeSquare.Column, column);
+            Assert.NotNull(mineSquare);
+            Assert.AreEqual(mineSquare.Row, row);
+            Assert.AreEqual(mineSquare.Column, column);
         }
 
     }
